@@ -1,0 +1,29 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: mrh-console-banner
+  namespace: mrh-policies
+spec:
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+  - objectDefinition:
+      apiVersion: policy.open-cluster-management.io/v1
+      kind: ConfigurationPolicy
+      metadata:
+        name: mrh-console-banner
+      spec:
+        remediationAction: enforce
+        severity: low
+        object-templates:
+        - complianceType: musthave
+          objectDefinition:
+            apiVersion: console.openshift.io/v1
+            kind: ConsoleNotification
+            metadata:
+              name: gitops-demo-banner
+            spec:
+              text: "This cluster is managed by GitOps (v1)"
+              location: BannerTop
+              color: "#ffffff"
+              backgroundColor: "#0066cc"

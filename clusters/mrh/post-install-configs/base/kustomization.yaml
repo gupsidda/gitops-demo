@@ -1,0 +1,6 @@
+resources:
+- clusterset-binding.yaml
+- placement.yaml
+- placementbinding.yaml
+- node-labels.yaml
+- console-banner.yaml

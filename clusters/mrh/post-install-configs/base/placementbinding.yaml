@@ -1,0 +1,12 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+  name: binding-mrh-policies
+  namespace: mrh-policies
+placementRef:
+  apiGroup: cluster.open-cluster-management.io
+  kind: Placement
+  name: mrh-placement
+subjects:
+- {apiGroup: policy.open-cluster-management.io, kind: Policy, name: mrh-node-labels}
+- {apiGroup: policy.open-cluster-management.io, kind: Policy, name: mrh-console-banner}
